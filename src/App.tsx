@@ -1,19 +1,21 @@
-import TaskCard from "./TaskCard";
+import "./App.css";
+import NewTaskInput from "./NewTaskInput";
+import TaskList from "./TaskList";
 
 function App() {
   return (
-    <div>
-      <TaskCard
-        title="Finish Assignment"
-        done={false}
-        dueDate="2026-10-25"
-      />
+    <main className="page-shell">
+      <header className="page-header">
+        <p className="eyebrow">React Core · UI as State</p>
+        <h1>My tasks</h1>
+        <p>Keep your next steps in one place.</p>
+      </header>
 
-      <TaskCard
-        title="Study React"
-        done={true}
-      />
-    </div>
+      <section className="task-board" aria-label="Task board">
+        <NewTaskInput />
+        <TaskList />
+      </section>
+    </main>
   );
 }
 
