@@ -1,13 +1,18 @@
 import { useState, type FormEvent } from "react";
 
-function NewTaskInput() {
+type NewTaskInputProps = {
+  onAddTask: (title: string) => void;
+};
+
+function NewTaskInput({ onAddTask }: NewTaskInputProps) {
   const [text, setText] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (text.trim() === "") return;
+    const title = text.trim();
+    if (title === "") return;
 
-    console.log(text.trim());
+    onAddTask(title);
     setText("");
   }
 

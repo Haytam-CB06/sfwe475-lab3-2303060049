@@ -1,35 +1,26 @@
-# React + TypeScript + Vite
+# Task Board — React Core: UI as State
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A small React and TypeScript task board built for the SFWE475 / CPRG201 Lab 4 activity. It demonstrates reusable components, props, local state, keyed lists, controlled inputs, lifting state to a shared parent, and `localStorage` persistence.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Create a production build with `npm run build`. Run the configured linter with `npm run lint`.
+
+## What it does
+
+- Add tasks with a controlled input; blank titles are ignored.
+- Toggle task completion from each task card.
+- Filter the list to show all, done, or open tasks.
+- Save tasks in this browser and restore them after a reload.
+- Validate saved task data with the shared Zod schema before loading it.
+
+There is no backend. Task data stays in the current browser's local storage.
+
+## Personal lab notes
+
+Add your own explanations and observations in `notes/react.md`. Answer the three self-check questions in `notes/reflection.md`; prompts are left there for you.

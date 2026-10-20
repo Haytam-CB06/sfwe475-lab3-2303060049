@@ -1,27 +1,30 @@
-import { useState } from "react";
 import type { Task } from "./schemas";
-import TaskCheckbox from "./TaskCheckBox";
+import TaskCheckbox from "./TaskCheckbox";
 type TaskCardProps = Pick<Task, "title" | "done"> & {
   dueDate?: string;
+  onToggle: () => void;
 };
 
-
-
-function TaskCard({ title, done: initialDone, dueDate }: TaskCardProps) {
-  const [done, setDone] = useState(initialDone);
-
+function TaskCard({ title, done, dueDate, onToggle }: TaskCardProps) {
   return (
-    <div className="task-card">
-      <h3>{title}</h3>
-
-      {dueDate && <p>Due: {dueDate}</p>}
-
+    <article className={done ? "task-card is-done" : "task-card"}>
       <TaskCheckbox
         done={done}
-        onToggle={() => setDone(!done)}
+        label={`Mark ${title} as ${done ? "open" : "done"}`}
+        onToggle={onToggle}
       />
-    </div>
+      <div className="task-copy">
+        <h3>{title}</h3>
+        <div className="task-meta">
+          <span className={done ? "status-badge is-done" : "status-badge"}>
+            {done ? "Done" : "Open"}
+          </span>
+          {dueDate && <time dateTime={dueDate}>Due: {dueDate}</time>}
+        </div>
+      </div>
+    </article>
   );
 }
+
 export default TaskCard;
 
