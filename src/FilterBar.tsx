@@ -6,9 +6,9 @@ type FilterBarProps = {
 };
 
 const filters: { value: TaskFilter; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "done", label: "Done" },
-  { value: "open", label: "Open" },
+  { value: "all", label: "All tasks" },
+  { value: "done", label: "Done tasks" },
+  { value: "open", label: "Open tasks" },
 ];
 
 function FilterBar({ filter, onFilterChange }: FilterBarProps) {

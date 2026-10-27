@@ -20,12 +20,14 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
 button:focus-visible,
-input:focus-visible {
-  outline: 3px solid #9db4ff;
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #315cce;
   outline-offset: 2px;
 }
